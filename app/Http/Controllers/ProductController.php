@@ -2,10 +2,20 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
+   protected $request;
+
+
+   public function __construct(Request $request) {
+
+       $this->request = $request;
+   }
+   
+   
     /**
      * Display a listing of the resource.
      *
