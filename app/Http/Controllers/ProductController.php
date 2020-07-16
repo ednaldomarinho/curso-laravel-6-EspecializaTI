@@ -60,7 +60,12 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        dd('Cadastrando...');
+        dd($request->all());
+        //dd($request->only(['name', 'description']));
+        //dd($request->name);
+        //dd($request->has('teste'));
+        //dd($request->input('name', 'default'));
+        //dd($request->except('_token', 'description'));
     }
 
     /**
@@ -95,7 +100,7 @@ class ProductController extends Controller
      */
     public function update(Request $request, $id)
     {
-        dd("Editando o produto $id...");
+        dd("Editing the product $id...");
     }
 
     /**
