@@ -6,6 +6,22 @@
 
     <h1>Exibindo de produtos</h1>
 
+    {{-- directive include  --}} 
+    @component('admin.components.card')
+    {{-- directive slot  --}} 
+        @slot('title')
+            <h2>Card Title</h2>
+        @endslot
+        A example card
+    @endcomponent
+
+    <hr>
+
+    {{-- directive include  --}} 
+        @include('admin.includes.alerts', ['content'=> 'Products Price Alert'])
+
+    <hr>
+
     {{-- directive foreach  --}}   
     @if (isset($teste3))
         @foreach ($products as $product)        
