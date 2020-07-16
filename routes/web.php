@@ -1,5 +1,7 @@
 <?php
 
+Route::get('products', 'ProductController@index')->name('products.index');
+
 Route::get('/login', function(){
     return '<h2>Tela de Login</h2>';
 })->name('login');
