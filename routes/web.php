@@ -1,5 +1,10 @@
 <?php
 
+Route::get('products/{id}', 'ProductController@show')->name('products.show');
+
+//Route::get('products/{id?}', 'ProductController@show')->name('products.show');
+//* in ProductController@show needs to pass a parameter for id Ex.:($id=null) 
+
 Route::get('products', 'ProductController@index')->name('products.index');
 
 Route::get('/login', function(){
