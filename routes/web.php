@@ -1,5 +1,13 @@
 <?php
 
+Route::get('redirect3', function () {
+    return redirect()->route('url.name');
+});
+
+Route::get('/nome-url', function(){
+    return '<h2>Hey Hey Hey</h2>';
+})->name('url.name');
+
 Route::view('/view', 'welcome');
 
 // Route::get('/view', function () {
