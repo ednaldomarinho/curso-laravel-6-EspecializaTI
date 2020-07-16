@@ -34,7 +34,7 @@ class ProductController extends Controller
        
         $teste = '<h1>("Olá")</h1>';
        // return view('teste',['teste' => $teste ]);
-       return view('teste',compact('teste'));
+       return view('admin.pages.products.index',compact('teste'));
     }
 
     /**
