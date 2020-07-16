@@ -10,6 +10,8 @@
     <h1>My First View </h1>
 
     <h2>{{$teste}}</h2>
+
+    <h3>{!!$teste!!}</h3>
     
 </body>
 </html>

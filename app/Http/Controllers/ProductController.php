@@ -32,7 +32,7 @@ class ProductController extends Controller
     public function index()
     {
        
-        $teste = 456;
+        $teste = '<h1>("Olá")</h1>';
        // return view('teste',['teste' => $teste ]);
        return view('teste',compact('teste'));
     }
