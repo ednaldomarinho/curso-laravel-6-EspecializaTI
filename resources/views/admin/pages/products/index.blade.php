@@ -1,5 +1,6 @@
 @extends('admin.layouts.app')
 
+{{-- directive section  --}} 
 @section('title', 'Gestão de Produtos')
 
 @section('content')
@@ -102,6 +103,15 @@
    
 @endsection
 
-<style>
-    .last {background: #CCC;}
-</style>
+{{-- directive @push --}}
+@push('styles')
+    <style>
+        .last {background: #CCC;}
+    </style>    
+@endpush
+
+@push('scripts')
+    <script>
+        document.body.style.background = '#efefef'
+    </script>    
+@endpush
