@@ -11,6 +11,19 @@
 |
 */
 
+Route::get('/produtos/{idProduct?}', function ($idProduct = '') {
+    return "<h1>Produto: {$idProduct}</h1>";
+});
+
+Route::get('/categoria/{flag}/posts', function ($flag) {
+    return "<h1>Posts da categoria: {$flag}</h1>";
+});
+
+Route::get('/categorias/{flag}', function ($flag) {
+    return "<h1>Produtos da categoria: {$flag}</h1>";
+});
+
+
 Route::match(['get', 'post'],'/match', function () {
     return "<h1>Match</h1>";
 });
@@ -25,4 +38,5 @@ Route::get('/empresa', function () {
 
 Route::get('/', function () {
     return view('welcome');
+    
 });
