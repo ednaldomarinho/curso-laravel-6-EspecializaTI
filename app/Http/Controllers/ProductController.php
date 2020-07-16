@@ -6,39 +6,79 @@ use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function index()
-    {        
-        $products = ['Product01', 'Product02', 'Product03'];   
-        return $products;
+    {
+        return "<h4>Teste da rota de controllers</h4>";
     }
 
-    public function show($id)
-    {        
-        return "<h3>Exibindo o produto de ID: {$id}</h3>";
-    }
-
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function create()
-    {        
-        return "<h3>Exibindo o form de cadastro de um produto</h3>";
+    {
+        //
     }
 
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
+        //
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+        //
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
     public function edit($id)
-    {        
-        return "<h3>Exibindo o form de edição do produto de ID: {$id}</h3>";
+    {
+        return "<h4>Teste da rota de controllers com o ID: {$id}</h4>";
     }
 
-    public function store()
-    {        
-        return "<h3>Cadastrando novo produto</h3>";
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, $id)
+    {
+        //
     }
 
-    public function update($id)
-    {        
-        return "<h3>Editando o produto de ID: {$id}</h3>";
-    }
-
-    public function delete($id)
-    {        
-        return "<h3>Deletando o produto de ID: {$id}</h3>";
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
+    {
+        //
     }
 }
