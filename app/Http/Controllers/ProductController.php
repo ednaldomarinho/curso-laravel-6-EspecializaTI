@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\View;
 
 class ProductController extends Controller
 {
@@ -30,7 +31,10 @@ class ProductController extends Controller
      */
     public function index()
     {
-        return "<h4>Teste da rota de controllers</h4>";
+       
+        $teste = 456;
+       // return view('teste',['teste' => $teste ]);
+       return view('teste',compact('teste'));
     }
 
     /**
