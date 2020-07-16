@@ -11,6 +11,14 @@
 |
 */
 
+Route::match(['get', 'post'],'/match', function () {
+    return "<h1>Match</h1>";
+});
+
+Route::any('/any', function () {
+    return "<h1>Any</h1>";
+});
+
 Route::get('/empresa', function () {
     return view('contact');
 });
