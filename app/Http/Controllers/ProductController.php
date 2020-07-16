@@ -33,11 +33,13 @@ class ProductController extends Controller
     {       
         $teste = 123;
         $teste2 = 456;
-        $teste3 = ['value'] ;
+        $teste3 = [1,2,3,4,5] ;
+       //$products =[];
+        $products =['TV', 'geladeira', 'fogão', 'sofá'];
 
        // return view('teste',['teste' => $teste ]);
        return view('admin.pages.products.index',
-              compact('teste', 'teste2', 'teste3'));
+              compact('teste', 'teste2', 'teste3', 'products'));
     }
 
     /**

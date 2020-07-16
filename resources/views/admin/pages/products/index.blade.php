@@ -6,6 +6,25 @@
 
     <h1>Exibindo de produtos</h1>
 
+    {{-- directive foreach  --}}   
+    @if (isset($teste3))
+        @foreach ($products as $product)        
+           <p class="@if ($loop->last) last @endif"><strong>{{$product}}</strong></p>         
+        @endforeach        
+    @endif
+
+
+    <hr>
+    
+    {{-- directive forelse  --}} 
+    @forelse ($products as $product)
+        <p class="@if ($loop->first) last @endif"><strong>{{$product}}</strong></p>   
+    @empty
+        <p>Não existem produtos cadastrados</p>        
+    @endforelse
+
+    <hr>
+
     {{-- directive @if/@elseif/@else --}}    
 
     @if ($teste === 123)
@@ -66,3 +85,7 @@
     @endswitch
    
 @endsection
+
+<style>
+    .last {background: #CCC;}
+</style>
