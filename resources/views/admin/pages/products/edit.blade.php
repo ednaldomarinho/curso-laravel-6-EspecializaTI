@@ -1,11 +1,12 @@
 @extends('admin.layouts.app')
 
-@section('title', 'Register New Product')
+@section('title', 'Edit Product')
 
 @section('content')
-    <h1>Register New Product</h1>
+<h1>Edit Product {{$id}}</h1>
 
-    <form action="{{route('products.store')}}" method="post">  
+    <form action="{{route('products.update', $id)}}" method="post">
+        @method('PUT')
         @csrf
         <input type="text" name="name" placeholder="Name">
         <input type="text" name="description" placeholder="Description">
