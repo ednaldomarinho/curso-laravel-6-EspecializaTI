@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\User;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -13,8 +12,16 @@ class ProductController extends Controller
    public function __construct(Request $request) {
 
        $this->request = $request;
+
+      // $this->middleware('auth');
+      // $this->middleware('auth')->only([
+      //     'create', 'store'
+      //  ]);
+
+      $this->middleware('auth')->except([
+          'index', 'show'
+      ]);
    }
-   
    
     /**
      * Display a listing of the resource.
@@ -55,7 +62,7 @@ class ProductController extends Controller
      */
     public function show($id)
     {
-        //
+        return "<h4>Teste do show com o ID: {$id}</h4>";
     }
 
     /**

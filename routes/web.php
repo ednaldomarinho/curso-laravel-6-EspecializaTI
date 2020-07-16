@@ -2,7 +2,7 @@
 
 use App\Http\Controllers\ProductController;
 
-Route::resource('products', 'ProductController');
+Route::resource('products', 'ProductController');//->middleware('auth');
 
 
 /*
