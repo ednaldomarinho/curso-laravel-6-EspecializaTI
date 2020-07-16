@@ -5,7 +5,11 @@
 
 @section('content')
 
-    <h1>Exibindo de produtos</h1>
+    <h1>Showing Products...</h1>
+
+    <a href="{{route('products.create')}}">Cadastrar</a>
+
+    <hr>
 
     {{-- directive include  --}} 
     @component('admin.components.card')

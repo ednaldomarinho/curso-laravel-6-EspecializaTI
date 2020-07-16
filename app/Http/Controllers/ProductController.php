@@ -19,9 +19,9 @@ class ProductController extends Controller
       //     'create', 'store'
       //  ]);
 
-      $this->middleware('auth')->except([
-          'index', 'show'
-      ]);
+    //   $this->middleware('auth')->except([
+    //       'index', 'show'
+    //   ]);
    }
    
     /**
@@ -49,7 +49,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.pages.products.create');
     }
 
     /**
@@ -60,7 +60,7 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        dd('Cadastrando');
     }
 
     /**
