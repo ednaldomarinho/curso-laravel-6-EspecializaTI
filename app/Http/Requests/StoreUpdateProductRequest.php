@@ -9,7 +9,7 @@ class StoreUpdateProductRequest extends FormRequest
     /**
      * Determine if the user is authorized to make this request.
      *
-     * @return bool
+     * @return bool'
      */
     public function authorize()
     {
@@ -25,8 +25,9 @@ class StoreUpdateProductRequest extends FormRequest
     {
         return [
             'name' => 'required|min:3|max:25',
-            'description' => 'nullable|min:3|max:25',
-            'photo' => 'required|image',
+            'description' => 'required|min:3|max:25',
+            'price' => 'required',
+            'image' => 'nullable|image',
         ];
     }
 
@@ -36,10 +37,11 @@ class StoreUpdateProductRequest extends FormRequest
             'name.required' => 'Nome é obrigatório',
             'name.min' => 'Nome tem que ter no mínimo 3 caracteres',
             'name.max' => 'Nome tem que ter no máximo 25 caracteres',
+            'description.required' => 'A descrição é obrigatória',
             'description.min' => 'Descrição tem que ter no mínimo 3 caracteres',
             'description.max' => 'Descrição tem que ter no máximo 25 caracteres',
-            'photo.required' => 'É necessário escolher um arquivo',
-            'photo.image' => 'O arquivo precisa ser uma imagem',
+            'price.required' => 'O preço é obrigatório',
+            'image.image' => 'O arquivo precisa ser uma imagem',
         ];
     }
 }

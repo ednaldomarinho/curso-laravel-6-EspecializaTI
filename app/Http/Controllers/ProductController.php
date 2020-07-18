@@ -63,27 +63,14 @@ class ProductController extends Controller
      */
     public function store(StoreUpdateProductRequest $request)
     {
-        dd('Ok');
-        
-        // $request->validate([
-        //     'name' => 'required|min:3|max:255',
-        //     'description' => 'nullable|min:3|max:10000',
-        //     'photo' => 'required|image',
-        // ]);
+        $data = $request->only('name', 'price', 'description');
 
-        
-        //dd($request->all());
-        //dd($request->only(['name', 'description']));
-        //dd($request->name);
-        //dd($request->has('teste'));
-        //dd($request->input('name', 'default'));
-        //dd($request->except('_token', 'description'));
+        Product::create($data);
 
-        if ($request->file('photo')->isValid()):
-           //dd($request->file('photo')->store('products'));
-           $nameFile = $request->name . "." . $request->photo->extension();
-           dd($request->file('photo')->storeAs('products', $nameFile));
-        endif;
+        return redirect()->route('products.index');
+        // $product = new Product;
+        // $product->name = $data['name'];
+        // $product->save();
 
     }
 
