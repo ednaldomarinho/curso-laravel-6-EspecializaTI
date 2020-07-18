@@ -7,15 +7,15 @@
 
     <h1>Showing Products...</h1>
 
-    <a href="{{route('products.create')}}">Register</a>
+    <a href="{{route('products.create')}}" class="btn btn-primary">Register</a>
 
     <hr>
-    <table border="1">
-        <thead>
+    <table class="table table-striped">
+        <thead class="thead-dark">
             <tr>
                 <th>Name</th>
                 <th>Price</th>
-                <th>Actions</th>
+                <th width="100">Actions</th>
             </tr>            
         </thead>
         <tbody>
