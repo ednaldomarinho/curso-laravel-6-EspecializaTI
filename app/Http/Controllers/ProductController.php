@@ -67,6 +67,17 @@ class ProductController extends Controller
     {
         $data = $request->only('name', 'price', 'description');
 
+        if ($request->hasFile('image') && $request->image->isValid() ):
+
+            $imagePath = $request->image->store('products');
+            
+            $data['image'] = $imagePath;
+
+        endif;
+
+
+
+
         $this->repository->create($data);
 
         //Product::create($data);
@@ -132,7 +143,17 @@ class ProductController extends Controller
             return redirect()->back();
         endif;
 
-        $product->update($request->all());
+        $data = $request->all();
+
+        if ($request->hasFile('image') && $request->image->isValid() ):
+            if ($product->image && Storage::exists($product->image) ):
+                Storage::delete($product->image);
+            endif;
+            $imagePath = $request->image->store('products');            
+            $data['image'] = $imagePath;
+        endif;
+
+        $product->update($data);
 
         return redirect()->route('products.index');
     }
@@ -150,6 +171,10 @@ class ProductController extends Controller
         if (!$product):
             return redirect()->back();
         endif;       
+
+        if ($product->image && Storage::exists($product->image) ):
+            Storage::delete($product->image);
+        endif;
        
         $product->delete();
 

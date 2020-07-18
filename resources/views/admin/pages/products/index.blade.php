@@ -19,6 +19,7 @@
     <table class="table table-striped">
         <thead class="thead-dark">
             <tr>
+                <th width="100">Image</th>
                 <th>Name</th>
                 <th>Price</th>
                 <th width="100">Actions</th>
@@ -27,6 +28,12 @@
         <tbody>
             @foreach ($products as $product)
             <tr>
+                <td>
+                    @if ($product->image)
+                        <img src="{{url("storage/{$product->image}")}}" alt="{{$product->name}}" style="max-width:100px;">
+                    @endif
+                </td>               
+                
                 <td>{{$product->name}}</td>
                 <td>{{$product->price}}</td>
             <td>
