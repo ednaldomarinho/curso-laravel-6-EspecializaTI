@@ -23,8 +23,10 @@
             <tr>
                 <td>{{$product->name}}</td>
                 <td>{{$product->price}}</td>
-            <td><a href="{{route('products.edit', $product->id)}}">Edit</a></td>
-            <td><a href="{{route('products.show', $product->id)}}">Details</a></td>
+            <td>
+                <a href="{{route('products.edit', $product->id)}}">Edit</a>
+                <a href="{{route('products.show', $product->id)}}">Details</a>
+            </td>
             </tr>
         
             @endforeach
