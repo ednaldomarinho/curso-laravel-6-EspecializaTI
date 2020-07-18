@@ -9,6 +9,12 @@
 
     <a href="{{route('products.create')}}" class="btn btn-primary">Register</a>
 
+    <form action="{{route('products.search')}}" method="post" class="form form-inline">
+        @csrf
+        <input type="text" name="filter" placeholder="filter" class="form-control">
+        <button type="submit" class="btn btn-info">Search</button>
+    </form>
+
     <hr>
     <table class="table table-striped">
         <thead class="thead-dark">
@@ -33,6 +39,13 @@
         </tbody>
     </table>
 
-    {!!$products->links()!!}
+    @if (isset($filters))
+        {!! $products->appends($filters)->links() !!}        
+    @else
+        {!!$products->links()!!}        
+    @endif
+   
+    
+
    
 @endsection

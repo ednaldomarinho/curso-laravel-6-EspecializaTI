@@ -155,4 +155,19 @@ class ProductController extends Controller
 
         return redirect()->route('products.index');
     }
+
+    
+    
+    
+    public function search(Request $request)
+    {
+        $filters = $request->all();
+       
+        $products = $this->repository->search($request->filter);
+
+        return view('admin.pages.products.index',[
+            'products' => $products,
+            'filters' => $filters,
+        ]); 
+    }
 }
