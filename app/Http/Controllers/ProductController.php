@@ -11,11 +11,13 @@ use Illuminate\Support\Facades\View;
 class ProductController extends Controller
 {
    protected $request;
+   protected $repository;
 
 
-   public function __construct(Request $request) {
+   public function __construct(Request $request, Product $product) {
 
        $this->request = $request;
+       $this->repository = $product;
 
       // $this->middleware('auth');
       // $this->middleware('auth')->only([
@@ -37,7 +39,7 @@ class ProductController extends Controller
        
         //$products = Product::all();
         //$products = Product::get();
-        $products = Product::paginate(10);
+        $products = $this->repository::paginate(10);
 
        // return view('teste',['teste' => $teste ]);
        return view('admin.pages.products.index',[
@@ -65,7 +67,9 @@ class ProductController extends Controller
     {
         $data = $request->only('name', 'price', 'description');
 
-        Product::create($data);
+        $this->repository->create($data);
+
+        //Product::create($data);
 
         return redirect()->route('products.index');
         // $product = new Product;
@@ -83,7 +87,7 @@ class ProductController extends Controller
     public function show($id)
     {
        // $product = Product::where('id', $id)->first();
-        $product = Product::find( $id);
+        $product = $this->repository::find( $id);
 
         if (!$product):
             return redirect()->back();
@@ -127,6 +131,14 @@ class ProductController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $product = $this->repository->where('id', $id)->first();
+
+        if (!$product):
+            return redirect()->back();
+        endif;       
+       
+        $product->delete();
+
+        return redirect()->route('products.index');
     }
 }

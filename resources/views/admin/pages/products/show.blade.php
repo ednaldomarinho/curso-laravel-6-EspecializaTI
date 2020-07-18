@@ -13,5 +13,11 @@
         <li><strong>Description: </strong>{{$product->description}}</li>
     </ul>
 
-     <a href="{{route('products.index')}}" class="btn btn-primary">Back</a>
+<form action="{{{route('products.destroy', $product->id)}}}" method="post">
+    @csrf
+    @method('DELETE')
+    <button type="submit" class="btn btn-danger">Delete</button>
+    <a href="{{route('products.index')}}" class="btn btn-primary">Back</a>
+</form>
+     
 @endsection
