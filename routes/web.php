@@ -2,9 +2,9 @@
 
 use App\Http\Controllers\ProductController;
 
-Route::any('products/search', 'ProductController@search')->name('products.search');
+Route::any('products/search', 'ProductController@search')->name('products.search')->middleware('auth');;
 
-Route::resource('products', 'ProductController');//->middleware('auth');
+Route::resource('products', 'ProductController')->middleware('auth');
 
 
 /*
@@ -24,3 +24,7 @@ Route::get('/login', function(){
 Route::get('/', function(){
     return view('welcome');
 })->name('welcome');
+
+Auth::routes(['register' => false]);
+
+Route::get('/home', 'HomeController@index')->name('home');
